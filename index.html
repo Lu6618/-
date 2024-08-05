@@ -1,58 +1,85 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPN 机场推荐</title>
+    <title>VPN 推荐</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
         }
         .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .card img {
             max-width: 100%;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         .card h2 {
             margin: 10px 0;
+            color: #555;
         }
         .card p {
-            margin: 10px 0;
+            color: #777;
+        }
+        .card .price {
+            font-weight: bold;
+            color: #333;
+        }
+        .card a {
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .card a:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>推荐的 VPN 机场</h1>
-
         <div class="card">
-            <img src="vpn1.jpg" alt="VPN 机场 1">
+            <img src="https://via.placeholder.com/300" alt="VPN 1">
             <h2>VPN 机场 1</h2>
-            <p>简介：这是一个非常好的 VPN 机场，提供稳定的连接和优质的服务。</p>
-            <p>套餐信息：月付 $5，年付 $50</p>
+            <p>简介: 高速、安全的 VPN 服务。</p>
+            <p class="price">价格: $10/月</p>
+            <a href="https://vpn1.example.com" target="_blank">访问官网</a>
         </div>
-
         <div class="card">
-            <img src="vpn2.jpg" alt="VPN 机场 2">
+            <img src="https://via.placeholder.com/300" alt="VPN 2">
             <h2>VPN 机场 2</h2>
-            <p>简介：另一个高质量的 VPN 机场，拥有高速的服务器和出色的安全性。</p>
-            <p>套餐信息：月付 $6，年付 $55</p>
+            <p>简介: 可靠的 VPN 服务，适合长期使用。</p>
+            <p class="price">价格: $15/月</p>
+            <a href="https://vpn2.example.com" target="_blank">访问官网</a>
         </div>
+        <!-- 添加更多卡片 -->
     </div>
 </body>
 </html>
