@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CFWK Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input, textarea { width: 100%; margin: 10px 0; }
+        button { padding: 10px; background: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>CFWK Tool</h1>
+    <input type="text" id="link" placeholder="Enter subscription link" />
+    <button onclick="parseLink()">Parse</button>
+    <div id="nodes"></div>
+    <textarea id="output" placeholder="Generated link"></textarea>
+    <button onclick="generateLink()">Generate</button>
+    <script src="script.js"></script>
+</body>
+</html>
