@@ -16,116 +16,42 @@
             margin: auto;
             padding: 20px;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
         .card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            padding: 20px;
         }
         .card img {
-            width: 100%;
-            height: auto;
+            max-width: 100%;
+            border-radius: 10px;
         }
-        .card-content {
-            padding: 15px;
+        .card h2 {
+            margin: 10px 0;
         }
-        .card-content h2,
-        .card-content p {
-            margin: 0;
-        }
-        .card-content .price {
-            font-weight: bold;
-            color: #007BFF;
-        }
-        .card-content .link {
-            display: block;
-            margin-top: 10px;
-            text-align: center;
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .card-content .link:hover {
-            background-color: #0056b3;
-        }
-        .editor {
-            display: none;
-            margin-top: 20px;
-        }
-        .editor textarea {
-            width: 100%;
-            height: 150px;
-            margin-bottom: 10px;
-        }
-        .editor button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .editor button:hover {
-            background-color: #0056b3;
+        .card p {
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>VPN 机场推荐</h1>
-            <p>这里是我们推荐的 VPN 机场，提供高质量的服务和套餐信息。</p>
-            <!-- 编辑按钮 -->
-            <button onclick="showEditor()">编辑内容</button>
+        <h1>推荐的 VPN 机场</h1>
+
+        <div class="card">
+            <img src="vpn1.jpg" alt="VPN 机场 1">
+            <h2>VPN 机场 1</h2>
+            <p>简介：这是一个非常好的 VPN 机场，提供稳定的连接和优质的服务。</p>
+            <p>套餐信息：月付 $5，年付 $50</p>
         </div>
-        <div id="card-container">
-            <!-- 示例 VPN 卡片 -->
-            <div class="card">
-                <img src="https://via.placeholder.com/800x400" alt="VPN 机场 1">
-                <div class="card-content">
-                    <h2 contenteditable="true" data-key="vpn1-name">VPN 机场 1</h2>
-                    <p contenteditable="true" data-key="vpn1-description">这是 VPN 机场 1 的简介，提供高速稳定的网络连接。</p>
-                    <p class="price" contenteditable="true" data-key="vpn1-price">套餐信息：$5/月</p>
-                    <a href="https://example.com" class="link" contenteditable="true" data-key="vpn1-link">了解更多</a>
-                </div>
-            </div>
-            <!-- 更多 VPN 卡片 -->
-        </div>
-        <div class="editor" id="editor">
-            <h2>编辑内容</h2>
-            <textarea id="editor-content" placeholder="编辑 HTML 内容..."></textarea>
-            <button onclick="saveChanges()">保存更改</button>
+
+        <div class="card">
+            <img src="vpn2.jpg" alt="VPN 机场 2">
+            <h2>VPN 机场 2</h2>
+            <p>简介：另一个高质量的 VPN 机场，拥有高速的服务器和出色的安全性。</p>
+            <p>套餐信息：月付 $6，年付 $55</p>
         </div>
     </div>
-
-    <script>
-        const adminPassword = 'your_admin_password'; // 替换为实际的管理员密码
-
-        function showEditor() {
-            const password = prompt('请输入管理员密码：');
-            if (password === adminPassword) {
-                const editor = document.getElementById('editor');
-                editor.style.display = editor.style.display === 'block' ? 'none' : 'block';
-                if (editor.style.display === 'block') {
-                    document.getElementById('editor-content').value = document.getElementById('card-container').innerHTML;
-                }
-            } else {
-                alert('密码错误！');
-            }
-        }
-
-        function saveChanges() {
-            const newContent = document.getElementById('editor-content').value;
-            document.getElementById('card-container').innerHTML = newContent;
-            document.getElementById('editor').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
