@@ -1,21 +1,121 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CFWK Tool</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        input, textarea { width: 100%; margin: 10px 0; }
-        button { padding: 10px; background: #007BFF; color: white; border: none; cursor: pointer; }
-        button:hover { background: #0056b3; }
-    </style>
-</head>
-<body>
-    <h1>CFWK Tool</h1>
-    <input type="text" id="link" placeholder="Enter subscription link" />
-    <button onclick="parseLink()">Parse</button>
-    <div id="nodes"></div>
-    <textarea id="output" placeholder="Generated link"></textarea>
-    <button onclick="generateLink()">Generate</button>
-    <script src="script.js"></script>
-</body>
-</html>
+function renderHTML() {
+    return `
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CFWK 代码生成器</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f4f4f4;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1, h2 {
+                text-align: center;
+            }
+            label {
+                display: block;
+                margin-top: 10px;
+            }
+            textarea, input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>CFWK 代码生成器</h1>
+            <form id="cfwk-form">
+                <label for="subscription-link">输入订阅链接：</label>
+                <input type="text" id="subscription-link" size="50">
+                <button type="button" onclick="parseSubscriptionLink()">解析链接</button>
+            </form>
+            <div id="nodes">
+                <h2>节点：</h2>
+                <div id="node-list"></div>
+            </div>
+            <div id="output">
+                <h2>生成的订阅链接：</h2>
+                <textarea id="output-data" rows="5" cols="50" readonly></textarea>
+                <button type="button" onclick="generateNewSubscriptionLink()">生成新链接</button>
+            </div>
+        </div>
+        <script>
+            async function parseSubscriptionLink() {
+                const link = document.getElementById('subscription-link').value;
+                const response = await fetch('/parse?link=' + encodeURIComponent(link));
+                const nodes = await response.json();
+                displayNodes(nodes);
+            }
+
+            function displayNodes(nodes) {
+                const nodeList = document.getElementById('node-list');
+                nodeList.innerHTML = '';
+
+                nodes.forEach((node, index) => {
+                    const nodeDiv = document.createElement('div');
+                    nodeDiv.className = 'node';
+                    nodeDiv.innerHTML = `
+                        <label for="node-name-${index}">节点名称：</label>
+                        <input type="text" id="node-name-${index}" value="${node.name}">
+                        <p>地址: ${node.address}</p>
+                        <p>端口: ${node.port}</p>
+                    `;
+                    nodeList.appendChild(nodeDiv);
+                });
+            }
+
+            async function generateNewSubscriptionLink() {
+                const nodes = [];
+                const nodeList = document.getElementById('node-list').children;
+
+                for (let i = 0; i < nodeList.length; i++) {
+                    const nodeName = document.getElementById('node-name-' + i).value;
+                    const nodeAddress = nodeList[i].querySelector('p:nth-child(3)').innerText.split(' ')[1];
+                    const nodePort = nodeList[i].querySelector('p:nth-child(4)').innerText.split(' ')[1];
+                    nodes.push({ name: nodeName, address: nodeAddress, port: nodePort });
+                }
+
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nodes: nodes })
+                });
+                const newLink = await response.text();
+                document.getElementById('output-data').value = newLink;
+            }
+        </script>
+    </body>
+    </html>
+    `;
+}
