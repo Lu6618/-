@@ -83,7 +83,7 @@
             <h1>VPN 机场推荐</h1>
             <p>这里是我们推荐的 VPN 机场，提供高质量的服务和套餐信息。</p>
             <!-- 编辑按钮 -->
-            <button onclick="toggleEditor()">编辑内容</button>
+            <button onclick="showEditor()">编辑内容</button>
         </div>
         <div id="card-container">
             <!-- 示例 VPN 卡片 -->
@@ -106,11 +106,18 @@
     </div>
 
     <script>
-        function toggleEditor() {
-            const editor = document.getElementById('editor');
-            editor.style.display = editor.style.display === 'block' ? 'none' : 'block';
-            if (editor.style.display === 'block') {
-                document.getElementById('editor-content').value = document.getElementById('card-container').innerHTML;
+        const adminPassword = 'your_admin_password'; // 替换为实际的管理员密码
+
+        function showEditor() {
+            const password = prompt('请输入管理员密码：');
+            if (password === adminPassword) {
+                const editor = document.getElementById('editor');
+                editor.style.display = editor.style.display === 'block' ? 'none' : 'block';
+                if (editor.style.display === 'block') {
+                    document.getElementById('editor-content').value = document.getElementById('card-container').innerHTML;
+                }
+            } else {
+                alert('密码错误！');
             }
         }
 
