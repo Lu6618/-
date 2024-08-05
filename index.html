@@ -1,121 +1,140 @@
-function renderHTML() {
-    return `
-    <!DOCTYPE html>
-    <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CFWK 代码生成器</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 20px;
-                background-color: #f4f4f4;
-            }
-            .container {
-                max-width: 800px;
-                margin: auto;
-                padding: 20px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-            h1, h2 {
-                text-align: center;
-            }
-            label {
-                display: block;
-                margin-top: 10px;
-            }
-            textarea, input[type="text"] {
-                width: 100%;
-                padding: 10px;
-                margin-top: 5px;
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                display: block;
-                width: 100%;
-                padding: 10px;
-                background-color: #007BFF;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                margin-top: 10px;
-            }
-            button:hover {
-                background-color: #0056b3;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>CFWK 代码生成器</h1>
-            <form id="cfwk-form">
-                <label for="subscription-link">输入订阅链接：</label>
-                <input type="text" id="subscription-link" size="50">
-                <button type="button" onclick="parseSubscriptionLink()">解析链接</button>
-            </form>
-            <div id="nodes">
-                <h2>节点：</h2>
-                <div id="node-list"></div>
-            </div>
-            <div id="output">
-                <h2>生成的订阅链接：</h2>
-                <textarea id="output-data" rows="5" cols="50" readonly></textarea>
-                <button type="button" onclick="generateNewSubscriptionLink()">生成新链接</button>
-            </div>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN 机场推荐</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            margin-bottom: 20px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-content h2,
+        .card-content p {
+            margin: 0;
+        }
+        .card-content .price {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .card-content .link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .card-content .link:hover {
+            background-color: #0056b3;
+        }
+        .editor {
+            display: none;
+            margin-top: 20px;
+        }
+        .editor textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .editor button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .editor button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VPN 机场推荐</h1>
+            <p>这里是我们推荐的 VPN 机场，提供高质量的服务和套餐信息。</p>
+            <button onclick="toggleEditor()">编辑内容</button>
         </div>
-        <script>
-            async function parseSubscriptionLink() {
-                const link = document.getElementById('subscription-link').value;
-                const response = await fetch('/parse?link=' + encodeURIComponent(link));
-                const nodes = await response.json();
-                displayNodes(nodes);
+        <div class="cards" id="card-container">
+            <!-- Example VPN card -->
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="VPN 机场 1">
+                <div class="card-content">
+                    <h2 contenteditable="true" data-key="vpn1-name">VPN 机场 1</h2>
+                    <p contenteditable="true" data-key="vpn1-description">这是 VPN 机场 1 的简介，提供高速稳定的网络连接。</p>
+                    <p class="price" contenteditable="true" data-key="vpn1-price">套餐信息：$5/月</p>
+                    <a href="https://example.com" class="link" contenteditable="true" data-key="vpn1-link">了解更多</a>
+                </div>
+            </div>
+            <!-- Add more VPN cards as needed -->
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="VPN 机场 2">
+                <div class="card-content">
+                    <h2 contenteditable="true" data-key="vpn2-name">VPN 机场 2</h2>
+                    <p contenteditable="true" data-key="vpn2-description">这是 VPN 机场 2 的简介，提供优质的客户服务和高速连接。</p>
+                    <p class="price" contenteditable="true" data-key="vpn2-price">套餐信息：$10/月</p>
+                    <a href="https://example.com" class="link" contenteditable="true" data-key="vpn2-link">了解更多</a>
+                </div>
+            </div>
+            <!-- Repeat .card div for additional VPN recommendations -->
+        </div>
+        <div class="editor" id="editor">
+            <h2>编辑内容</h2>
+            <textarea id="editor-content" placeholder="编辑 HTML 内容..."></textarea>
+            <button onclick="saveChanges()">保存更改</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleEditor() {
+            const editor = document.getElementById('editor');
+            editor.style.display = editor.style.display === 'block' ? 'none' : 'block';
+            if (editor.style.display === 'block') {
+                document.getElementById('editor-content').value = document.getElementById('card-container').innerHTML;
             }
+        }
 
-            function displayNodes(nodes) {
-                const nodeList = document.getElementById('node-list');
-                nodeList.innerHTML = '';
-
-                nodes.forEach((node, index) => {
-                    const nodeDiv = document.createElement('div');
-                    nodeDiv.className = 'node';
-                    nodeDiv.innerHTML = `
-                        <label for="node-name-${index}">节点名称：</label>
-                        <input type="text" id="node-name-${index}" value="${node.name}">
-                        <p>地址: ${node.address}</p>
-                        <p>端口: ${node.port}</p>
-                    `;
-                    nodeList.appendChild(nodeDiv);
-                });
-            }
-
-            async function generateNewSubscriptionLink() {
-                const nodes = [];
-                const nodeList = document.getElementById('node-list').children;
-
-                for (let i = 0; i < nodeList.length; i++) {
-                    const nodeName = document.getElementById('node-name-' + i).value;
-                    const nodeAddress = nodeList[i].querySelector('p:nth-child(3)').innerText.split(' ')[1];
-                    const nodePort = nodeList[i].querySelector('p:nth-child(4)').innerText.split(' ')[1];
-                    nodes.push({ name: nodeName, address: nodeAddress, port: nodePort });
-                }
-
-                const response = await fetch('/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nodes: nodes })
-                });
-                const newLink = await response.text();
-                document.getElementById('output-data').value = newLink;
-            }
-        </script>
-    </body>
-    </html>
-    `;
-}
+        function saveChanges() {
+            const newContent = document.getElementById('editor-content').value;
+            document.getElementById('card-container').innerHTML = newContent;
+            document.getElementById('editor').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
