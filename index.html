@@ -48,6 +48,12 @@
         .header a:hover {
             background-color: #5ab4e0; /* 悬停时背景颜色 */
         }
+        /* 卡片容器样式 */
+        .card-container {
+            display: flex; /* 使用 Flexbox */
+            flex-wrap: wrap; /* 换行 */
+            justify-content: space-between; /* 子元素之间的空间 */
+        }
         /* 卡片的基本样式 */
         .card {
             background-color: #fff; /* 背景颜色 */
@@ -73,6 +79,15 @@
             color: #007BFF; /* 字体颜色蓝色 */
             cursor: pointer; /* 鼠标悬停时显示手型 */
             text-decoration: none; /* 去除下划线 */
+            font-size: 1.2em; /* 默认字体大小 */
+        }
+        .card h2 a {
+            text-decoration: none; /* 去除下划线 */
+            color: white; /* 字体颜色 */
+            background-color: #5ab4e0; /* 深一点的浅蓝色背景 */
+            padding: 10px 20px; /* 内边距 */
+            border-radius: 5px; /* 圆角边框 */
+            display: inline-block; /* 内联块元素 */
         }
         /* 卡片内容样式 */
         .card p {
@@ -82,20 +97,6 @@
         .card .price {
             font-weight: bold; /* 粗体字 */
             color: #333; /* 字体颜色 */
-        }
-        /* 机场名称按钮的样式 */
-        .card h2 a {
-            text-decoration: none; /* 去除下划线 */
-            color: white; /* 字体颜色 */
-            background-color: #5ab4e0; /* 深一点的浅蓝色背景 */
-            padding: 10px 20px; /* 内边距 */
-            border-radius: 5px; /* 圆角边框 */
-            margin-top: 10px; /* 上外边距 */
-            display: inline-block; /* 内联块元素 */
-        }
-        /* 机场名称按钮悬停时的样式 */
-        .card h2 a:hover {
-            background-color: #4a9ac8; /* 悬停时背景颜色 */
         }
         /* 访问官网按钮的样式 */
         .card a {
@@ -110,12 +111,6 @@
         /* 访问官网按钮悬停时的样式 */
         .card a:hover {
             background-color: #0056b3; /* 悬停时背景颜色 */
-        }
-        /* 使用 Flexbox 布局 */
-        .card-container {
-            display: flex; /* 使用 Flexbox */
-            flex-wrap: wrap; /* 换行 */
-            justify-content: space-between; /* 子元素之间的空间 */
         }
     </style>
 </head>
@@ -160,13 +155,16 @@
                 <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
                 <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
             </div>
+            <!-- 第四个 VPN 机场卡片 -->
             <div class="card">
-                <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 3">
-                <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
+                <img src="https://via.placeholder.com/300" alt="VPN 4">
+                <h2><a href="https://vpn4.example.com" target="_blank">VPN 机场 4</a></h2>
                 <p class="price">机场特色</p>
-                <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
-                <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
-                <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+                <p>提供全球节点的 VPN 服务，支持多种设备的连接。</p>
+                <p class="price">最低套餐:  15元 / 100GB月</p>
+                <p class="price">推荐套餐: 25元 / 300GB月</p>
+                <a href="https://vpn4.example.com" target="_blank">访问官网</a>
+            </div>
         </div>
     </div>
 </body>
