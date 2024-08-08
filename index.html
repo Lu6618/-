@@ -1,6 +1,3 @@
-是的，刚才的代码确实没有变化。以下是确保“查看图片”按钮显示为灰色的修正版：
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,8 +90,12 @@
         .card a:hover {
             background-color: #0056b3;
         }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Optional spacing between buttons */
+        }
         .view-image-btn {
-            margin-top: 10px;
             color: white;
             background-color: #6c757d; /* 灰色 */
             padding: 10px 20px;
@@ -156,8 +157,10 @@
             <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
             <p class="price">最低套餐: 5元 / 150GB月</p>
             <p class="price">推荐套餐:10元 / 300GB月</p>
-            <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true">查看图片</a>
-            <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
+            <div class="button-group">
+                <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true">查看图片</a>
+                <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
+            </div>
         </div>
         <div class="card">
             <h2><a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">飞兔云</a></h2>
@@ -165,16 +168,20 @@
             <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路，含有不限时套餐</p>
             <p class="price">最低套餐:  6元 / 100GB月</p>
             <p class="price">推荐套餐: 10元 / 200GB月</p>
-            <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true">查看图片</a>
-            <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
+            <div class="button-group">
+                <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true">查看图片</a>
+                <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
+            </div>
         </div>
         <div class="card">
             <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
             <p class="price">机场特色</p>
             <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
             <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
-            <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7302.jpg?raw=true">查看图片</a>
-            <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+            <div class="button-group">
+                <a class="view-image-btn" data-img="https://github.com/Lu6618/-/blob/main/IMG_7302.jpg?raw=true">查看图片</a>
+                <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+            </div>
         </div>
 
         <!-- The Modal -->
