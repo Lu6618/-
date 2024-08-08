@@ -51,20 +51,16 @@
         /* 卡片容器样式 */
         .card-container {
             display: flex; /* 使用 Flexbox */
-            flex-wrap: wrap; /* 换行 */
-            justify-content: space-between; /* 子元素之间的空间 */
+            flex-direction: column; /* 垂直方向排列 */
+            gap: 15px; /* 卡片之间的间距 */
         }
         /* 卡片的基本样式 */
         .card {
             background-color: #fff; /* 背景颜色 */
             border: 1px solid #ddd; /* 边框颜色 */
             border-radius: 8px; /* 圆角边框 */
-            margin: 15px; /* 外边距 */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
             padding: 15px; /* 内边距 */
-            flex: 1; /* Flexbox 布局中占据剩余空间 */
-            box-sizing: border-box; /* 包括内边距和边框 */
-            max-width: calc(50% - 30px); /* 每个卡片占据50%的宽度，并考虑外边距 */
             text-align: left; /* 左对齐内容 */
         }
         /* 卡片图片样式 */
@@ -129,7 +125,7 @@
             <!-- 第一个 VPN 机场卡片 -->
             <div class="card">
                 <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
-                <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher</a></h2>
+                <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
                 <p class="price">机场特色</p>
                 <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
                 <p class="price">最低套餐: 5元 / 150GB月</p>
