@@ -5,124 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPN 推荐</title>
     <style>
-        /* 设置页面的基本样式 */
         body {
-            font-family: Arial, sans-serif; /* 设置字体 */
-            margin: 0; /* 去除默认边距 */
-            padding: 0; /* 去除默认内边距 */
-            background-color: #f0f0f0; /* 设置背景颜色 */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
         }
         .container {
-            max-width: 1000px; /* 设置最大宽度 */
-            margin: auto; /* 自动水平居中 */
-            padding: 20px; /* 内边距 */
-            background-color: white; /* 背景颜色 */
-            border-radius: 8px; /* 圆角边框 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-            text-align: center; /* 居中对齐 */
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        /* 设置顶部横幅样式 */
         .header {
-            text-align: center; /* 居中对齐 */
-            padding: 20px; /* 内边距 */
-            color: #28a745; /* 字体颜色 */
-            border-radius: 8px; /* 圆角边框 */
-            margin-bottom: 20px; /* 下边距 */
+            text-align: center;
+            padding: 20px;
+            color: #28a745;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
-        /* 设置顶部链接的样式 */
         .header h1 {
-            margin: 0; /* 去除外边距 */
-            font-size: 24px; /* 字体大小 */
+            margin: 0;
+            font-size: 24px;
         }
         .header a {
-            color: white; /* 字体颜色 */
-            text-decoration: none; /* 去除下划线 */
-            font-weight: bold; /* 粗体字 */
-            padding: 10px 20px; /* 内边距 */
-            border-radius: 5px; /* 圆角边框 */
-            display: inline-block; /* 内联块元素 */
-            margin-top: 10px; /* 上外边距 */
-            background-color: #7ec8e3; /* 深一点的浅蓝色 */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #7ec8e3;
         }
-        /* 链接悬停时的样式 */
         .header a:hover {
-            background-color: #5ab4e0; /* 悬停时背景颜色 */
+            background-color: #5ab4e0;
         }
-        /* 卡片的基本样式 */
         .card {
-            background-color: #fff; /* 背景颜色 */
-            border: 1px solid #ddd; /* 边框颜色 */
-            border-radius: 8px; /* 圆角边框 */
-            margin: 15px 0; /* 上下外边距 */
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-            padding: 15px; /* 内边距 */
-            display: flex; /* 弹性布局 */
-            flex-direction: column; /* 垂直排列 */
-            align-items: center; /* 垂直居中对齐 */
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        /* 卡片图片样式 */
         .card img {
-            width: 100%; /* 固定宽度 */
-            max-width: 300px; /* 最大宽度 */
-            height: auto; /* 保持纵横比 */
-            border-radius: 8px; /* 圆角边框 */
-            object-fit: cover; /* 保持图片的纵横比 */
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
-        /* 卡片标题样式 */
         .card h2 {
-            margin: 10px 0; /* 上下外边距 */
-            color: #007BFF; /* 字体颜色蓝色 */
-            cursor: pointer; /* 鼠标悬停时显示手型 */
-            text-decoration: none; /* 去除下划线 */
+            margin: 10px 0;
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: none;
         }
-        /* 卡片内容样式 */
         .card p {
-            color: #777; /* 字体颜色 */
+            color: #777;
         }
-        /* 卡片价格样式 */
         .card .price {
-            font-weight: bold; /* 粗体字 */
-            color: #333; /* 字体颜色 */
+            font-weight: bold;
+            color: #333;
         }
-        /* 机场名称按钮的样式 */
         .card h2 a {
-            text-decoration: none; /* 去除下划线 */
-            color: white; /* 字体颜色 */
-            background-color: #5ab4e0; /* 深一点的浅蓝色背景 */
-            padding: 10px 20px; /* 内边距 */
-            border-radius: 5px; /* 圆角边框 */
-            margin-top: 10px; /* 上外边距 */
+            text-decoration: none;
+            color: white;
+            background-color: #5ab4e0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
-        /* 机场名称按钮悬停时的样式 */
         .card h2 a:hover {
-            background-color: #4a9ac8; /* 悬停时背景颜色 */
+            background-color: #4a9ac8;
         }
-        /* 访问官网按钮的样式 */
         .card a {
-            text-decoration: none; /* 去除下划线 */
-            color: white; /* 字体颜色 */
-            background-color: #007BFF; /* 蓝色背景 */
-            padding: 10px 20px; /* 内边距 */
-            border-radius: 5px; /* 圆角边框 */
-            margin-top: 10px; /* 上外边距 */
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
-        /* 访问官网按钮悬停时的样式 */
         .card a:hover {
-            background-color: #0056b3; /* 悬停时背景颜色 */
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <!-- 顶部的公益订阅部分 -->
     <div class="header">
         <h1>频道公益订阅</h1>
-        <!-- 公益订阅链接 -->
         <a href="https://gx.591haoka.com/api/v1/client/subscribe?token=9e48312624d64c219f8e7u9af55b4k238bh7" target="_blank">长按这里进行复制</a>
     </div>
-    <!-- 页面内容部分 -->
     <div class="container">
         <h1>冠希推荐性价比机场</h1>
-        <!-- 卡片列表 -->
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
             <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
@@ -132,7 +151,6 @@
             <p class="price">推荐套餐:10元 / 300GB月</p>
             <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
         </div>
-        <!-- 第二个 VPN 机场卡片 -->
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true" alt="VPN 2">
             <h2><a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">飞兔云</a></h2>
@@ -141,17 +159,15 @@
             <p class="price">最低套餐:  6元 / 100GB月</p>
             <p class="price">推荐套餐: 10元 / 200GB月</p>
             <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
-        </div>        
-        <!-- 第三个 VPN 机场卡片 -->
+        </div>
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 3">
             <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
             <p class="price">机场特色</p>
-            <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净</p>
+            <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
             <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
             <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
         </div>
-        <!-- 第四个 VPN 机场卡片 -->
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7297.JPG?raw=true" alt="VPN 4">
             <h2><a href="https://yunfanqie.net/#/register?code=W1OJsFh7" target="_blank">番茄云</a></h2>
@@ -161,7 +177,6 @@
             <p class="price">推荐套餐: 10元 / 200GB月</p>
             <a href="https://yunfanqie.net/#/register?code=W1OJsFh7" target="_blank">访问官网</a>
         </div>
-        <!-- 第五个 VPN 机场卡片 -->
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7270.JPG?raw=true" alt="VPN 5">
             <h2><a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">Cynode</a></h2>
@@ -171,6 +186,37 @@
             <p class="price">推荐套餐: 10元 / 240GB月</p>
             <a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">访问官网</a>
         </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img id="img01">
     </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal
+    var modalImg = document.getElementById("img01");
+    var images = document.querySelectorAll(".card img");
+
+    images.forEach(function(image) {
+        image.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+    });
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }
+</script>
 </body>
 </html>
