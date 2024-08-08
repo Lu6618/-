@@ -53,12 +53,12 @@
             background-color: #fff; /* 背景颜色 */
             border: 1px solid #ddd; /* 边框颜色 */
             border-radius: 8px; /* 圆角边框 */
-            margin: 15px 0; /* 上下外边距 */
+            margin: 15px; /* 外边距 */
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */
             padding: 15px; /* 内边距 */
-            display: flex; /* 弹性布局 */
-            flex-direction: column; /* 垂直排列 */
-            align-items: center; /* 垂直居中对齐 */
+            flex: 1; /* Flexbox 布局中占据剩余空间 */
+            box-sizing: border-box; /* 包括内边距和边框 */
+            max-width: calc(50% - 30px); /* 每个卡片占据50%的宽度，并考虑外边距 */
         }
         /* 卡片图片样式 */
         .card img {
@@ -107,6 +107,12 @@
         .card a:hover {
             background-color: #0056b3; /* 悬停时背景颜色 */
         }
+        /* 使用 Flexbox 布局 */
+        .card-container {
+            display: flex; /* 使用 Flexbox */
+            flex-wrap: wrap; /* 换行 */
+            justify-content: space-between; /* 子元素之间的空间 */
+        }
     </style>
 </head>
 <body>
@@ -119,46 +125,47 @@
     <!-- 页面内容部分 -->
     <div class="container">
         <h1>冠希推荐性价比机场</h1>
-        <!-- 第一个 VPN 机场卡片 -->
-        <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
-            <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
-            <p class="price">机场特色</p>
-            <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
-            <p class="price">最低套餐: 5元 / 150GB月</p>
-            <p class="price">推荐套餐:10元 / 300GB月</p>
-            <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
+        <!-- 卡片容器 -->
+        <div class="card-container">
+            <!-- 第一个 VPN 机场卡片 -->
+            <div class="card">
+                <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
+                <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
+                <p class="price">机场特色</p>
+                <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
+                <p class="price">最低套餐: 5元 / 150GB月</p>
+                <p class="price">推荐套餐:10元 / 300GB月</p>
+                <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
+            </div>
+            <!-- 第二个 VPN 机场卡片 -->
+            <div class="card">
+                <img src="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true" alt="VPN 2">
+                <h2><a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">飞兔云</a></h2>
+                <p class="price">机场特色</p>
+                <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路，含有不限时套餐</p>
+                <p class="price">最低套餐:  6元 / 100GB月</p>
+                <p class="price">推荐套餐: 10元 / 200GB月</p>
+                <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
+            </div>
+            <!-- 第三个 VPN 机场卡片 -->
+            <div class="card">
+                <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 3">
+                <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
+                <p class="price">机场特色</p>
+                <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
+                <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
+                <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+            </div>
+            <!-- 第4个 VPN 机场卡片 -->
+            <div class="card">
+                <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 3">
+                <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
+                <p class="price">机场特色</p>
+                <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
+                <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
+                <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+            </div>
         </div>
-        <!-- 第二个 VPN 机场卡片 -->
-        <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true" alt="VPN 2">
-            <h2><a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">飞兔云</a></h2>
-            <p class="price">机场特色</p>
-            <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路，含有不限时套餐</p>
-            <p class="price">最低套餐:  6元 / 100GB月</p>
-            <p class="price">推荐套餐: 10元 / 200GB月</p>
-            <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
-        </div>        
-        <!-- 第三个 VPN 机场卡片（注释掉） -->
-        <div        <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 2">
-            <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
-            <p class="price">机场特色</p>
-            <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
-            <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
-            <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
-        </div>        
-        -->
-        
-        <!-- 第四个 VPN 机场卡片（注释掉） -->
-        <!--
-        <div class="card">
-            <img src="https://via.placeholder.com/300" alt="VPN 4">
-            <h2><a href="https://vpn4.example.com" target="_blank">VPN 机场 4</a></h2>
-            <p>简介: 提供全球节点的 VPN 服务。</p>
-            <p class="price">价格: $20/月</p>
-            <a href="https://vpn4.example.com" target="_blank">访问官网</a>
-        </div>    -->
-</div>
+    </div>
 </body>
 </html>
