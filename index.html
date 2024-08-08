@@ -59,11 +59,13 @@
             flex: 1; /* Flexbox 布局中占据剩余空间 */
             box-sizing: border-box; /* 包括内边距和边框 */
             max-width: calc(50% - 30px); /* 每个卡片占据50%的宽度，并考虑外边距 */
+            text-align: left; /* 左对齐内容 */
         }
         /* 卡片图片样式 */
         .card img {
             max-width: 100%; /* 最大宽度 */
             border-radius: 8px; /* 圆角边框 */
+            height: auto; /* 保持原比例 */
         }
         /* 卡片标题样式 */
         .card h2 {
@@ -89,6 +91,7 @@
             padding: 10px 20px; /* 内边距 */
             border-radius: 5px; /* 圆角边框 */
             margin-top: 10px; /* 上外边距 */
+            display: inline-block; /* 内联块元素 */
         }
         /* 机场名称按钮悬停时的样式 */
         .card h2 a:hover {
@@ -102,6 +105,7 @@
             padding: 10px 20px; /* 内边距 */
             border-radius: 5px; /* 圆角边框 */
             margin-top: 10px; /* 上外边距 */
+            display: inline-block; /* 内联块元素 */
         }
         /* 访问官网按钮悬停时的样式 */
         .card a:hover {
@@ -130,7 +134,7 @@
             <!-- 第一个 VPN 机场卡片 -->
             <div class="card">
                 <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
-                <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher</a></h2>
+                <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
                 <p class="price">机场特色</p>
                 <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
                 <p class="price">最低套餐: 5元 / 150GB月</p>
@@ -156,7 +160,6 @@
                 <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
                 <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
             </div>
-            <!-- 第4个 VPN 机场卡片 -->
             <div class="card">
                 <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.JPG?raw=true" alt="VPN 3">
                 <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
@@ -164,7 +167,6 @@
                 <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
                 <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
                 <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
-            </div>
         </div>
     </div>
 </body>
