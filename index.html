@@ -169,14 +169,16 @@
             <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
         </div>
         <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7297.JPG?raw=true" alt="VPN 4">
-            <h2><a href="https://yunfanqie.net/#/register?code=W1OJsFh7" target="_blank">番茄云</a></h2>
+            <img src="https://github.com/Lu6618/-/blob/main/IMG_7319.jpg?raw=true" alt="VPN 4">
+            <h2><a href="" target="_blank">龙猫云</a></h2>
             <p class="price">机场特色</p>
             <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路</p>
             <p class="price">最低套餐: 5元 / 100GB月</p>
             <p class="price">推荐套餐: 10元 / 200GB月</p>
             <a href="https://yunfanqie.net/#/register?code=W1OJsFh7" target="_blank">访问官网</a>
         </div>
+        <!-- 注释掉的卡片 -->
+        <!-- 
         <div class="card">
             <img src="https://github.com/Lu6618/-/blob/main/IMG_7270.JPG?raw=true" alt="VPN 5">
             <h2><a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">Cynode</a></h2>
@@ -186,37 +188,38 @@
             <p class="price">推荐套餐: 10元 / 240GB月</p>
             <a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">访问官网</a>
         </div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-        <img id="img01">
+        -->
     </div>
-</div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="img01">
+        </div>
+    </div>
 
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
 
-    // Get the image and insert it inside the modal
-    var modalImg = document.getElementById("img01");
-    var images = document.querySelectorAll(".card img");
+        // Get the image and insert it inside the modal
+        var modalImg = document.getElementById("img01");
+        var images = document.querySelectorAll(".card img");
 
-    images.forEach(function(image) {
-        image.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
+        images.forEach(function(image) {
+            image.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+            modal.style.display = "none";
         }
-    });
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-        modal.style.display = "none";
-    }
-</script>
+    </script>
 </body>
 </html>
