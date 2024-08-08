@@ -116,12 +116,15 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0,0,0,0.9);
+            transition: opacity 0.3s ease;
         }
         .modal-content {
             margin: auto;
             display: block;
             width: 80%;
             max-width: 700px;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
         }
         .modal-content img {
             width: 100%;
@@ -141,6 +144,13 @@
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
+        }
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        .modal.show {
+            display: block;
+            opacity: 1;
         }
     </style>
 </head>
@@ -204,6 +214,7 @@
         viewImageButtons.forEach(function(button) {
             button.onclick = function() {
                 modal.style.display = "block";
+                modal.classList.add("show");
                 modalImg.src = this.getAttribute('data-img');
             }
         });
@@ -213,7 +224,8 @@
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() { 
-            modal.style.display = "none";
+            modal.classList.remove("show");
+            setTimeout(() => modal.style.display = "none", 300); // Hide after transition
         }
     </script>
 </body>
