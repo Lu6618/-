@@ -55,13 +55,6 @@
             flex-direction: column;
             align-items: center;
         }
-        .card img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
         .card h2 {
             margin: 10px 0;
             color: #007BFF;
@@ -95,6 +88,18 @@
             margin-top: 10px;
         }
         .card a:hover {
+            background-color: #0056b3;
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .card button:hover {
             background-color: #0056b3;
         }
         .modal {
@@ -143,50 +148,41 @@
     <div class="container">
         <h1>冠希推荐性价比机场</h1>
         <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7262.JPG?raw=true" alt="VPN 1">
             <h2><a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">CloudFisher 渔云</a></h2>
             <p class="price">机场特色</p>
             <p>IEPL专线+中转机场，赠送庞大影视库卷毛 Emby 服务 含有不限时套餐</p>
             <p class="price">最低套餐: 5元 / 150GB月</p>
             <p class="price">推荐套餐:10元 / 300GB月</p>
             <a href="https://cloudfisher.net/web/#/login?code=rZBXXeWD" target="_blank">访问官网</a>
+            <button onclick="showImage('img1')">查看图片</button>
         </div>
         <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7265.JPG?raw=true" alt="VPN 2">
             <h2><a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">飞兔云</a></h2>
             <p class="price">机场特色</p>
             <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路，含有不限时套餐</p>
             <p class="price">最低套餐:  6元 / 100GB月</p>
             <p class="price">推荐套餐: 10元 / 200GB月</p>
             <a href="https://xn--h5qy75o.com/index.html?register=pmHBJwek" target="_blank">访问官网</a>
+            <button onclick="showImage('img2')">查看图片</button>
         </div>
+        <!-- 注释掉的卡片 -->
+        <!-- 
         <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7302.jpg?raw=true" alt="VPN 3">
             <h2><a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">YkkCloud</a></h2>
             <p class="price">机场特色</p>
             <p>套餐含有5个0.1倍率节点，超快速度稳定中转线路，拥有3Gbps稳定带宽，不限制带宽速度，优质隧道传输，保障隐私安全，家宽节点保障IP洁净，</p>
             <p class="price">推荐套餐: 10.5 元 / 150GB月</p>
             <a href="https://8xn3salcd.ykkk.best/#/register?code=YKPtQHVC" target="_blank">访问官网</a>
+            <button onclick="showImage('img3')">查看图片</button>
         </div>
         <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7319.jpg?raw=true" alt="VPN 4">
             <h2><a href="" target="_blank">龙猫云</a></h2>
             <p class="price">机场特色</p>
             <p>流媒体全解锁，多国家落地覆盖70+节点，全中转线路</p>
             <p class="price">最低套餐: 5元 / 100GB月</p>
             <p class="price">推荐套餐: 10元 / 200GB月</p>
             <a href="https://yunfanqie.net/#/register?code=W1OJsFh7" target="_blank">访问官网</a>
-        </div>
-        <!-- 注释掉的卡片 -->
-        <!-- 
-        <div class="card">
-            <img src="https://github.com/Lu6618/-/blob/main/IMG_7270.JPG?raw=true" alt="VPN 5">
-            <h2><a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">Cynode</a></h2>
-            <p class="price">机场特色</p>
-            <p>流媒体解锁，倍率低，30天无理由退款</p>
-            <p class="price">最低套餐: 6元 / 120GB月</p>
-            <p class="price">推荐套餐: 10元 / 240GB月</p>
-            <a href="https://cynode.com/#/register?code=9nDbv6l8" target="_blank">访问官网</a>
+            <button onclick="showImage('img4')">查看图片</button>
         </div>
         -->
     </div>
@@ -194,30 +190,25 @@
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <div class="modal-content">
-            <img id="img01">
+            <img id="img01" src="">
         </div>
     </div>
 
     <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the image and insert it inside the modal
-        var modalImg = document.getElementById("img01");
-        var images = document.querySelectorAll(".card img");
-
-        images.forEach(function(image) {
-            image.onclick = function(){
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            }
-        });
+        function showImage(imgId) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var img = document.getElementById(imgId);
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() { 
+            var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
     </script>
